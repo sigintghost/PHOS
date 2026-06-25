@@ -27,7 +27,7 @@ VARS={"V0":(500,3000,1500,1.0),"C":(0.5,6.0,2.0,1e-6),
 def base_si():
     return {k:VARS[k][2]*VARS[k][3] for k in VARS}
 
-def run_pair(a,b,n=7):
+def run_pair(a,b,n=11):
     la,ha=VARS[a][0],VARS[a][1]
     lb,hb=VARS[b][0],VARS[b][1]
     grid=[]

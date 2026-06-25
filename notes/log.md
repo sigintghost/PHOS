@@ -12,3 +12,13 @@ simulated data only.
 
 ## Next
 Fine search plus off-grid truth. Then add a third hidden parameter.
+
+## Real-data targets (for eventual fitting)
+- Low discharge energy PPT, 3.16 kA at 800-1400V, up to 4.41 J.
+  Published current waveform, fittable.
+- Modified PPT, graphite/tungsten, current+voltage matched to
+  RLC with variable plasma resistance. Same physics as our model.
+- ASCENT liquid-fed PPT, 380uF at 400V ~30J, fast-camera images
+  synced to waveform = current AND position on same shot.
+- Phase matters: solid (Teflon ablation, skips gas), liquid-fed
+  (flash-ionized), each a different m0 process.

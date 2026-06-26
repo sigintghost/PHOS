@@ -6,5 +6,9 @@
  {
   "mode": "explore",
   "summary": "# PHOS / URIM \u2014 Run Evaluation: snowplow_slug_v1 (interaction hotspots)\n\n## Framing\nSame model class as prior (snowplow/slug): current sheet = infinitely thin slug that sweeps up all mass ahead of it. This run reports pairwise \"interaction hotspots\" \u2014 locations where efficiency bends most sharply as two parameters co-vary. These are curvature signatures in the model's response surface, **not** mea"
+ },
+ {
+  "mode": "physics",
+  "summary": "# PHOS / URIM \u2014 Cross-Reference Evaluation: snowplow_slug_v1 (interaction hotspots)\n\n## What the data actually is\n\nThe DATA block reports pairwise \"interaction hotspots\" \u2014 parameter pairs ranked by how sharply efficiency bends when both are varied. Every top-ranked pair contains **B** (the augmenting magnetic field term), and every B-pair lands at the same value **b=1.8**. That single fact dominat"
  }
 ]

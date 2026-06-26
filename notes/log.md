@@ -34,3 +34,10 @@ Fine search plus off-grid truth. Then add a third hidden parameter.
 - Real published trace ingestion via digitizing (WebPlotDigitizer path)
 - Sandbox sweep mode: auto-run one variable across a range
 - URIM: route cheap tasks to sonnet/haiku, opus for heavy synthesis
+
+## STATUS UPDATE (day 2)
+DONE: RLC reference built + validated (4.84 kA, 514 kHz, matches theory).
+DONE: URIM orchestrator live, 3 runs, explore + physics modes working.
+DONE: URIM cross-referenced model vs AF-MPD literature (Jahn, Burton/Turchi).
+FINDING: b=1.8 hotspot cluster is a grid/metric artifact, flagged 3x.
+NOW BUILDING: THUMMIM adversarial critic.

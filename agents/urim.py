@@ -120,7 +120,7 @@ def main():
     print(out)
     keep = input('\n  save to memory? (y/n) > ').strip().lower()
     if keep == 'y':
-        save_memory({'mode': mode, 'summary': out[:400]})
+        save_memory({'mode': mode, 'summary': out[:3000]})
         print('  saved.')
 
 if __name__ == '__main__':

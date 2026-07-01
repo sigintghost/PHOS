@@ -56,11 +56,15 @@ def curvature(grid,key):
     return {"bend":round(worst,4),"at":where}
 
 def main():
+    import sys
+    sys.path.insert(0, 'agents')
+    from progress import bar
     pairs=list(itertools.combinations(VARS.keys(),2))
     rep={"model":"snowplow_slug_v1","outputs":["pkI","vEx","imp","eff"],
          "vars":{k:{"min":VARS[k][0],"max":VARS[k][1],"base":VARS[k][2]} for k in VARS},
          "pairs":[]}
-    for a,b in pairs:
+    for idx,(a,b) in enumerate(pairs):
+        bar(idx, len(pairs), "mapping")
         g=run_pair(a,b)
         e={"pair":[a,b],"grid":g,"bends":{}}
         for key in ("eff","imp","vEx"):
@@ -71,6 +75,7 @@ def main():
         "eff_bend":p["bends"]["eff"]["bend"],
         "imp_bend":p["bends"]["imp"]["bend"],
         "hottest_at":p["bends"]["eff"]["at"]} for p in ranked[:5]]
+    bar(len(pairs), len(pairs), "mapping")
     with open("agents/map_report.json","w") as f:
         json.dump(rep,f,indent=1)
     print("mapped",len(pairs),"pairs -> agents/map_report.json")

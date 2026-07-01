@@ -94,3 +94,18 @@ without computing it. Checked directly: zeta = 0.075 * sqrt(66.7) =
 the same unchecked-assertion failure it was built to catch. LESSON:
 the critic is not automatically right either. Quantitative claims from
 any agent need direct verification, not trust in confidence language.
+
+## STATUS UPDATE (day 3, cont. 5) — extended physics check
+Built sims/extended.py: ionization cost, sheath voltage, radiation
+vs magnetic pressure, relativistic check, for a typical run.
+FINDING (real, not hyped): ionization cost for 50ug propellant
+= 723.8mJ against a 5J pulse = ~14.5% of pulse energy. This is
+NOT currently subtracted anywhere in the snowplow model's energy
+balance. Every efficiency number computed so far (sandbox, sims,
+infographics) is missing this cost and is systematically optimistic.
+Sheath voltage (9.4V @ Te=2eV) correctly small vs 1200V discharge.
+Radiation pressure ~47x below magnetic at 3kA - dominant but not
+"many orders of magnitude" as first stated, worth re-checking at
+higher current. Relativistic effects fully negligible, confirmed.
+NEXT: subtract ionization cost from the efficiency calc in ppt_sim.py
+and rlc_fit.py, see how much the real efficiency numbers drop.

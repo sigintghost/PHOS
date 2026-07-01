@@ -61,3 +61,25 @@ a 2.5x amplitude scaling error. Fixed with proper least-squares
 amplitude fit. Correct result: 0.00% residual. H0 HOLDS - the RLC
 model is exactly a damped sinusoid, nothing hidden. This validates
 the diagnostic tool itself: it can correctly report a clean null.
+
+## STATUS UPDATE (day 3, cont. 2)
+CONTROLLED TEST: URIM flagged snowplow decay (7.1e3/s) as anomalously
+low vs RLC (2.49e6/s), hypothesized reversible inductive storage.
+Tested directly: added matched R=0.15 to snowplow model. Result:
+decay converged to 2.43e6/s (near RLC), residual dropped to 0.03%.
+CONCLUSION: gap was simply "snowplow had no resistive term," not
+nonlinearity or storage. Hypothesis rejected, simpler explanation
+confirmed. Real disprovable test, correctly resolved.
+
+## STATUS UPDATE (day 3, cont. 3)
+TEST 4 - nonlinearity sweep (Lp=0.10 to 1.00 uH/m, R matched=0.15):
+residual energy climbs monotonically 0.00% -> 0.03% -> 0.13% -> 0.35%.
+Superlinear growth, consistent with the model's own 0.5*Lp*i^2 force
+term (scales faster than linear in Lp). Fitted frequency also drifts
+down (514.8 -> 500.2 kHz) as Lp grows - physically expected, since
+stronger Lp adds effective inductance as sheet moves. Two independent
+signatures corroborate: this is a real, disprovable, confirmed
+quantitative relationship between nonlinearity strength and spectral
+departure from linear ringing. Not H1 (no evidence of anything beyond
+the model's own known physics) - this is H0 characterization, done
+properly, with real internal consistency.

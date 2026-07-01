@@ -78,6 +78,18 @@ def load_data(path):
     return raw
 
 def frame_data(raw):
+    if 'runs' in raw:
+        lines = ['DATA SOURCE: ' + raw.get('test','unknown test'),
+                 'SIMULATION output, not measured experimental data.']
+        for r in raw['runs']:
+            lines.append('\n  trace: ' + r.get('trace','?'))
+            lines.append('  params: ' + str(r.get('params',{})))
+            lines.append('  fitted_freq_kHz=' + str(r.get('fitted_freq_kHz')))
+            lines.append('  fitted_decay_per_s=' + str(r.get('fitted_decay_per_s')))
+            lines.append('  residual_energy_pct=' + str(r.get('residual_energy_pct')))
+            lines.append('  verdict=' + str(r.get('verdict')))
+        lines.append('\nnote: ' + raw.get('note',''))
+        return '\n'.join(lines)
     hint = raw.get('orchestrator_hint', [])
     lines = ['DATA SOURCE model: ' + raw.get('model','unknown'),
              'This is SIMULATION output, not real experimental data.',

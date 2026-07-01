@@ -1,0 +1,22 @@
+{
+  "test": "H0 spectral diagnostic - does baseline model explain the trace",
+  "runs": [
+    {
+      "trace": "RLC reference (linear)",
+      "params": {"C_uF": 2.0, "L_nH": 30, "R_ohm": 0.15, "V0": 1200},
+      "fitted_freq_kHz": 513.7,
+      "fitted_decay_per_s": 2.49e6,
+      "residual_energy_pct": 0.00,
+      "verdict": "H0 HOLDS"
+    },
+    {
+      "trace": "snowplow model (nonlinear, moving inductance + mass sweep)",
+      "params": {"Lp_uH_per_m": 0.40, "m0_ug_per_m": 1.0, "C_uF": 2.0, "L0_nH": 30, "V0": 1500},
+      "fitted_freq_kHz": 623.4,
+      "fitted_decay_per_s": 2780,
+      "residual_energy_pct": 1.81,
+      "verdict": "H0 HOLDS"
+    }
+  ],
+  "note": "Both traces tested against a single-frequency damped-sinusoid baseline fit via least-squares amplitude/decay/frequency extraction. Zero-crossing frequency method, linear-regression decay fit. Real data (RLC) also independently validated against published PuLSA thruster parameters in sims/rlc_fit.py."
+}

@@ -1,0 +1,39 @@
+{
+ "test": "H0 characterization - does spectral residual scale with nonlinearity strength (Lp)?",
+ "context": "Snowplow model force term is 0.5*Lp*i^2. Prior test ruled out reversible-storage hypothesis for decay-rate gap (was simply missing R term, confirmed by matching R=0.15 to RLC reference, decay converged 7.1e3/s to 2.43e6/s).",
+ "fixed_params": {
+  "C_uF": 2.0,
+  "L0_nH": 30,
+  "V0": 1200,
+  "R_ohm": 0.15,
+  "m0_ug_per_m": 1.0
+ },
+ "swept_param": "Lp (inductance gradient, uH/m)",
+ "runs": [
+  {
+   "Lp_uH_per_m": 0.1,
+   "fitted_freq_kHz": 514.8,
+   "fitted_decay_per_s": 2480000.0,
+   "residual_energy_pct": 0.0
+  },
+  {
+   "Lp_uH_per_m": 0.4,
+   "fitted_freq_kHz": 511.6,
+   "fitted_decay_per_s": 2430000.0,
+   "residual_energy_pct": 0.03
+  },
+  {
+   "Lp_uH_per_m": 0.7,
+   "fitted_freq_kHz": 506.6,
+   "fitted_decay_per_s": 2360000.0,
+   "residual_energy_pct": 0.13
+  },
+  {
+   "Lp_uH_per_m": 1.0,
+   "fitted_freq_kHz": 500.2,
+   "fitted_decay_per_s": 2270000.0,
+   "residual_energy_pct": 0.35
+  }
+ ],
+ "note": "Residual grows monotonically and superlinearly with Lp. Frequency drifts down with Lp. Both consistent with the model's own force equation. This is a controlled single-variable sweep, R held fixed."
+}

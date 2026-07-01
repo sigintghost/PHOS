@@ -44,12 +44,22 @@ def save_memory(entry):
         json.dump(mem[-50:], f, indent=1)
 
 def memory_context(mem):
-    if not mem:
-        return ''
-    recent = mem[-5:]
-    lines = ['PRIOR FINDINGS (unverified, may contain errors,', 'treat as provisional not fact):']
-    for m in recent:
-        lines.append('- [' + m.get('mode','?') + '] ' + m.get('summary','')[:200])
+    lines = []
+    if mem:
+        recent = mem[-5:]
+        lines += ['PRIOR FINDINGS (unverified, may contain errors,', 'treat as provisional not fact):']
+        for m in recent:
+            lines.append('- [' + m.get('mode','?') + '] ' + m.get('summary','')[:200])
+    try:
+        import json
+        with open('agents/memory/thummim_mem.json') as f:
+            crit = json.load(f)
+        if crit:
+            lines += ['\nTHUMMIM CRITIQUES OF PRIOR URIM FINDINGS', '(these are corrections, weigh heavily):']
+            for c in crit[-3:]:
+                lines.append('- ' + c.get('critique','')[:300])
+    except:
+        pass
     return '\n'.join(lines)
 
 def ask_claude(system, user, model_key, api_key):

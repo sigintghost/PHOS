@@ -22,6 +22,19 @@ def frame_findings(mem):
         lines.append(m.get('summary',''))
     return '\n'.join(lines)
 
+THUMMIM_MEM = "agents/memory/thummim_mem.json"
+
+def save_critique(out):
+    import json, os
+    os.makedirs("agents/memory", exist_ok=True)
+    mem = []
+    if os.path.exists(THUMMIM_MEM):
+        with open(THUMMIM_MEM) as f:
+            mem = json.load(f)
+    mem.append({"critique": out[:3000]})
+    with open(THUMMIM_MEM, "w") as f:
+        json.dump(mem[-50:], f, indent=1)
+
 def main():
     api_key = load_key()
     if not api_key:
@@ -38,6 +51,10 @@ def main():
     print('\n  attacking URIM findings (' + mk + ')...\n')
     out = ask_claude(CRITIC_SYSTEM, findings, mk, api_key)
     print(out)
+    keep = input('\n  save critique? (y/n) > ').strip().lower()
+    if keep == 'y':
+        save_critique(out)
+        print('  saved.')
 
 if __name__ == '__main__':
     main()

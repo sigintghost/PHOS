@@ -41,3 +41,23 @@ DONE: URIM orchestrator live, 3 runs, explore + physics modes working.
 DONE: URIM cross-referenced model vs AF-MPD literature (Jahn, Burton/Turchi).
 FINDING: b=1.8 hotspot cluster is a grid/metric artifact, flagged 3x.
 NOW BUILDING: THUMMIM adversarial critic.
+
+## STATUS UPDATE (day 3)
+DONE: THUMMIM live. First run caught URIM citation inflation
+(AF-MPD literature misapplied to snowplow model) and L-prime vs
+L0 misattribution. Self-audit loop confirmed working.
+DONE: First real-data fit. RLC model fit to PuLSA paper (published,
+not synthetic): target 1200V/3.16kA/100kHz. Result: 99.3kHz ring
+(near exact), 3.92kA peak (24% high). sims/rlc_fit.py.
+NEXT: finer fit grid to close the peak-current gap. Feed real
+PuLSA numbers to URIM directly (physics mode) - not done yet.
+
+## STATUS UPDATE (day 3, cont.)
+DONE: Spectral diagnostic layer built (sims/spectral.py). H0 test:
+does baseline LC model fully explain a trace, or is there residual?
+First run: crude fit showed 31% residual (looked like H1). Diagnosed
+as a fitter bug via real-vs-baseline comparison, not physics - found
+a 2.5x amplitude scaling error. Fixed with proper least-squares
+amplitude fit. Correct result: 0.00% residual. H0 HOLDS - the RLC
+model is exactly a damped sinusoid, nothing hidden. This validates
+the diagnostic tool itself: it can correctly report a clean null.

@@ -83,3 +83,14 @@ quantitative relationship between nonlinearity strength and spectral
 departure from linear ringing. Not H1 (no evidence of anything beyond
 the model's own known physics) - this is H0 characterization, done
 properly, with real internal consistency.
+
+## STATUS UPDATE (day 3, cont. 4)
+THUMMIM caught a real cross-block contradiction in URIM's reasoning
+(low snowplow damping called "suspicious" in one run, "expected from
+higher L" in another - can't both be true). Good catch. BUT: THUMMIM
+also asserted zeta=(R/2)*sqrt(C/L) "probably doesn't produce ~0.6"
+without computing it. Checked directly: zeta = 0.075 * sqrt(66.7) =
+0.612. It does. THUMMIM's own arithmetic claim was wrong - ironically
+the same unchecked-assertion failure it was built to catch. LESSON:
+the critic is not automatically right either. Quantitative claims from
+any agent need direct verification, not trust in confidence language.
